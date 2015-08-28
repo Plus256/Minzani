@@ -247,12 +247,12 @@ if(isset($_GET['send_msg'])){
 				$q=mysqli_query($con, "select id, email from news_l where email='$frm'");
 			    if(mysqli_num_rows($q)>0){
 			    	//email exists in our news_l subscriptions
-			    	sendMsg($to, $frm, $sbj, $msg);
+			    	sendMsg($to, $frm, $sbj, $msg);//create function to send message
 			    }
 			    else{//new email
 			    	$q=mysqli_query($con, "insert into news_l (email) values ('$frm')");
 			    	if($q){
-			    		sendMsg();
+			    		sendMsg();//create function to send message
 			    	}
 			    }
 			}
